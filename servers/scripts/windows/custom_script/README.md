@@ -1,4 +1,4 @@
-# Deploy 7zip and VScode on Windows servers using a custom script
+# Deploy vcredist and 7zip on Windows servers using a custom script
 
 az deployment group create --resource-group <Name of the Azure resource group> --template-file **customscript-templatewindows.json** --parameters **customscript-templatewindows.parameters.json**
 

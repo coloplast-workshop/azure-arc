@@ -11,7 +11,7 @@
 #>
 
 $chocolateyExist = ((Test-Path -Path $env:ChocolateyInstall) -and (Test-Path -Path "$env:ChocolateyInstall\bin\Choco.exe"))
-$chocolateyAppList = '7zip,vscode'
+$chocolateyAppList = '7zip,vcredist140'
 $appsToInstall = $chocolateyAppList -split ',' | ForEach-Object -Process {
   ('{0}' -f $_.Trim())
 }
