@@ -1,6 +1,7 @@
 ﻿<#
     .SYNOPSIS   
-    Set environment variables
+    Set environment variables for onboarding the Azure ARC agent
+
     .NOTES
     Name        : Set-Vars.ps1
     Author      : Lars Krogh Paulsen
