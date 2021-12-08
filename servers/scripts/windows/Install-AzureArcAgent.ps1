@@ -1,3 +1,14 @@
+<#
+    .SYNOPSIS   
+    Use environment variables to install and configure the Azure ARC agent on Windows
+
+    .NOTES
+    Name        : Install-AzureArcAgent.ps1
+    Author      : Lars Krogh Paulsen
+    DateCreated : 2021-12-08
+    Version     : 0.0.1
+#>
+
 $env:subscriptionId = '<Your Azure subscription ID>'
 $env:appId = '<Your Azure service principal name>'
 $env:password = '<Your Azure service principal password>'
