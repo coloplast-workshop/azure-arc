@@ -1,4 +1,4 @@
-# How-to
+# Setup prerequisites
 Create the folder **C:\AzureARC** on your computer<br/>
 Copy the powershell scripts (.ps1) from here to the folder **C:\AzureARC** on your computer<br/>
 Update the Azure subscription name in the file **globals.env.ps1**<br/>
