@@ -8,16 +8,16 @@ Update the Azure subscription name in the file **globals.env.ps1**<br/>
 
 > Step 2
 Create a Resource Group (if not exist) for this Azure Arc PoC<br/>
-Run **00_az_commons.ps1** from the folder **C:\AzureARC** on your computer to create a azure resource group<br/>
+Execute **00_az_commons.ps1** from the folder **C:\AzureARC** on your computer to create a azure resource group<br/>
 
 > Step 3
 Register your Subscription for the Azure Arc Providers required to manage your resources<br/>
-Run **01_az_provider_registration_apply.ps1** from the folder **C:\AzureARC** on your computer to register the azure resource providers<br/>
+Execute **01_az_provider_registration_apply.ps1** from the folder **C:\AzureARC** on your computer to register the azure resource providers<br/>
 Wait for appx. 10 minutes<br/>
 
 > Step 4
 Create a Service Principal with just enough permission to enroll VMs into Azure Arc<br/>
-Run **02_az_service_principal_create.ps1** from the folder **C:\AzureARC** on your computer<br/>
+Execute **02_az_service_principal_create.ps1** from the folder **C:\AzureARC** on your computer<br/>
 
 > Step 5
 Create the Log Analytics Workspace for Azure Arc machines<br/>
