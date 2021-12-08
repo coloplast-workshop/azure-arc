@@ -9,10 +9,10 @@
             "value": "<Location value>" //Azure Region where the Arc VM is registered
         },
         "fileUris": {
-            "value": "https://raw.githubusercontent.com/coloplast-workshop/azure-arc/main/servers/scripts/windows/custom_script/Install-Applications.ps1"
+            "value": "https://raw.githubusercontent.com/coloplast-workshop/azure-arc/main/servers/operations/windows/custom_script/Invoke-Defragmentation.ps1"
         },
         "commandToExecute": {
-            "value": "powershell -ExecutionPolicy Unrestricted -File ./Install-Applications.ps1"
+            "value": "powershell -ExecutionPolicy Unrestricted -File ./Invoke-Defragmentation.ps1"
         }
     }
 }
