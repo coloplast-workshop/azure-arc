@@ -12,17 +12,17 @@
 #>
 
 param (
-  [Parameter(Mandatory,HelpMessage = 'Subscription ID')]
+  [Parameter(Mandatory,HelpMessage = 'Azure subscription ID')]
   [string]$subscriptionId,
-  [Parameter(Mandatory,HelpMessage = 'App ID')]
+  [Parameter(Mandatory,HelpMessage = 'Azure service principal name')]
   [string]$appId,
-  [Parameter(Mandatory,HelpMessage = 'Password')]
+  [Parameter(Mandatory,HelpMessage = 'Azure service principal password')]
   [string]$password,
-  [Parameter(Mandatory,HelpMessage = 'Tenant ID')]
+  [Parameter(Mandatory,HelpMessage = 'Azure tenant ID')]
   [string]$tenantId,
-  [Parameter(Mandatory,HelpMessage = 'Resource group')]
+  [Parameter(Mandatory,HelpMessage = 'Azure resource group')]
   [string]$resourceGroup,
-  [Parameter(Mandatory,HelpMessage = 'Location')]
+  [Parameter(Mandatory,HelpMessage = 'Azure Region')]
   [string]$location
 )
 

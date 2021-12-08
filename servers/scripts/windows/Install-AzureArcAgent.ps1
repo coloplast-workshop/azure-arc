@@ -9,10 +9,10 @@
     Version     : 0.0.1
 #>
 
-$env:subscriptionId = '<Your Azure subscription ID>'
-$env:appId = '<Your Azure service principal name>'
-$env:password = '<Your Azure service principal password>'
-$env:tenantId = '<Your Azure tenant ID>'
+$env:subscriptionId = '<Azure subscription ID>'
+$env:appId = '<Azure service principal name>'
+$env:password = '<Azure service principal password>'
+$env:tenantId = '<Azure tenant ID>'
 $env:resourceGroup = '<Azure resource group name>'
 $env:location = '<Azure Region>'
 
