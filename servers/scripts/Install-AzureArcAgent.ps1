@@ -2,7 +2,7 @@
 
 <#
     .SYNOPSIS   
-    Setup environment, create a ps script and add a scheduled task that run the ps script at startup
+    Set environment variables, create posh script and add scheduled task to run the posh script at startup
 
     .NOTES
     Name        : Install-AzureArcAgent.ps1
@@ -79,7 +79,7 @@ Add-Content -Value '  Invoke-WebRequest -Uri "https://github.com/coloplast-works
 Add-Content -Value '}' -Path $startupScript
 
 Add-Content -Value 'Get-MsiPackage' -Path $startupScript
-Add-Content -Value '& "$env:windir\system32\msiexec.exe" /i "$env:windir\Temp\AzureConnectedMachineAgent.msi" /l*v installationlog.txt /qn | Out-String' -Path $startupScript
+Add-Content -Value '& "$env:windir\system32\msiexec.exe" /i "$env:windir\Temp\AzureConnectedMachineAgent.msi" /l*v "$env:windir\Temp\AzureConnectedMachineAgent.txt" /qn | Out-String' -Path $startupScript
 Add-Content -Value '& "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --service-principal-id $env:appId --service-principal-secret $env:password --resource-group $env:resourceGroup --tenant-id $env:tenantId --location $env:location --subscription-id $env:subscriptionId --tags "Azure_ARC_servers" --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"' -Path $startupScript
 Add-Content -Value 'Unregister-ScheduledTask -TaskName "StartupScript" -Confirm:$false' -Path $startupScript
 Add-Content -Value 'Stop-Process -Name "powershell" -Force' -Path $startupScript
