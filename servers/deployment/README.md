@@ -1,19 +1,15 @@
 # Azure Arc PoC
 
 Goals:
-
-* enroll on-prem Windows servers
-* enroll on-prem Windows servers on Azure
+* Enroll on-prem Windows servers
+* Enroll on-prem Windows servers on Azure
 
 Furthermore:
-
-* integrate through Azure Automation Account:
+* Integrate through Azure Automation Account:
   - Change Tracking
   - Inventory Tracking
   - Update Management
-
-* integrate through Azure Monitoring:
+* Integrate through Azure Monitoring:
   - Performance metrics collection
-
-* integrate through Azure Policy:
+* Integrate through Azure Policy:
   - base system compliance checking

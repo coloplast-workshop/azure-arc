@@ -7,7 +7,7 @@ Copy the powershell scripts (.ps1) from here to the folder **C:\AzureARC** on yo
 Update the Azure subscription name in the file **globals.env.ps1**<br/>
 
 > Step 2
-Create a Resource Group for this Azure Arc PoC<br/>
+Create a Resource Group (if not exist) for this Azure Arc PoC<br/>
 Run **00_az_commons.ps1** from the folder **C:\AzureARC** on your computer to create a azure resource group<br/>
 
 > Step 3
