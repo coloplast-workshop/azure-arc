@@ -3,7 +3,7 @@
 Goals:
 * Enroll on-prem Windows servers
 * Enroll on-prem Windows servers on Azure
-
+	
 Furthermore:
 * Integrate through Azure Automation Account:
   - Change Tracking
