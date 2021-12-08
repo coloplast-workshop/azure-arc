@@ -24,5 +24,5 @@ if (-not ($chocolateyExist))
 foreach ($app in $appsToInstall)
 {
   Write-Output -InputObject ('Installing {0}' -f $app)
-  & "$env:ProgramData\Chocolatey\bin\Choco.exe" install $app /y | Write-Output
+  & "$env:ProgramData\Chocolatey\bin\Choco.exe" install $app -y | Write-Output
 }

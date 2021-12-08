@@ -1,17 +1,20 @@
+$msiPackage = Join-Path -Path $env:windir -ChildPath 'Temp\AzureConnectedMachineAgent.msi'
+$logFile = Join-Path -Path $env:windir -ChildPath 'Temp\Install-AzureArcAgent.txt'
+
 Invoke-Expression -Command "$env:SystemDrive\AzureARC\vars.ps1"
 
-function Get-MsiPackage()
+function Get-Package()
 {
   $ProgressPreference = 'SilentlyContinue'
-  Invoke-WebRequest -Uri 'https://github.com/coloplast-workshop/azure-arc/raw/main/servers/packages/AzureConnectedMachineAgent.msi' -OutFile "$env:windir\Temp\AzureConnectedMachineAgent.msi"
+  Invoke-WebRequest -Uri 'https://github.com/coloplast-workshop/azure-arc/raw/main/servers/packages/AzureConnectedMachineAgent.msi' -OutFile $msiPackage
 }
-Get-MsiPackage
+Get-Package
 
-$exitCode = (Start-Process -FilePath 'msiexec.exe' -ArgumentList @('/i', "$env:windir\Temp\AzureConnectedMachineAgent.msi" , '/l*v', "$env:windir\Temp\AzureConnectedMachineAgent.txt", '/qn') -Wait -PassThru).ExitCode
+$exitCode = (Start-Process -FilePath 'msiexec.exe' -ArgumentList @('/i', ('{0}' -f $msiPackage), '/l*v', ('{0}' -f $logFile), '/qn') -Wait -PassThru).ExitCode
 if ($exitCode -ne 0) 
 {
   $message = (& "$env:windir\system32\net.exe" helpmsg $exitCode)
-  throw ('Installation failed: {0} See {1}\Temp\AzureConnectedMachineAgent.txt for additional details.' -f $message, $env:windir)
+  throw ('Installation failed: {0} See {1} for additional details.' -f $message, $logFile)
 }
 
 & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect `
@@ -24,3 +27,5 @@ if ($exitCode -ne 0)
 --cloud 'AzureCloud' `
 --tags 'Azure_ARC_servers' `
 --correlation-id 'd009f5dd-dba8-4ac7-bac9-b54ef3a6671a'
+
+Remove-Item -Path $msiPackage -Force -ErrorAction SilentlyContinue

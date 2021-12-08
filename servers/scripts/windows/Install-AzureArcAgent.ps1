@@ -15,14 +15,17 @@ $env:password = '<Azure service principal password>'
 $env:tenantId = '<Azure tenant ID>'
 $env:resourceGroup = '<Azure resource group name>'
 $env:location = '<Azure Region>'
+$msiPackage = Join-Path -Path $env:windir -ChildPath 'Temp\AzureConnectedMachineAgent.msi'
 
 function Get-Package()
 {
   $ProgressPreference = 'SilentlyContinue'
-  Invoke-WebRequest -Uri 'https://github.com/coloplast-workshop/azure-arc/raw/main/servers/packages/AzureConnectedMachineAgent.msi' -OutFile "$env:windir\Temp\AzureConnectedMachineAgent.msi"
+  Invoke-WebRequest -Uri 'https://github.com/coloplast-workshop/azure-arc/raw/main/servers/packages/AzureConnectedMachineAgent.msi' -OutFile $msiPackage
 }
 Get-Package
 
-& "$env:windir\system32\msiexec.exe" /i "$env:windir\Temp\AzureConnectedMachineAgent.msi" /l*v "$env:windir\Temp\AzureConnectedMachineAgent.txt" /qn | Out-String
+& "$env:windir\system32\msiexec.exe" /i ('{0}' -f $msiPackage) /l*v "$env:windir\Temp\Install-AzureArcAgent.txt" /qn | Out-String
 
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --service-principal-id $env:appId --service-principal-secret $env:password --resource-group $env:resourceGroup --tenant-id $env:tenantId --location $env:location --subscription-id $env:subscriptionId --tags 'Azure_ARC_servers' --correlation-id 'd009f5dd-dba8-4ac7-bac9-b54ef3a6671a'
+
+Remove-Item -Path $msiPackage -ErrorAction SilentlyContinue

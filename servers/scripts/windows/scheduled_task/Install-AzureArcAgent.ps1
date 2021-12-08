@@ -72,15 +72,15 @@ Add-Content -Value 'Set-Service -Name WindowsAzureGuestAgent -StartupType Disabl
 Add-Content -Value 'Stop-Service -Name WindowsAzureGuestAgent -Force -Verbose' -Path $startupScript
 Add-Content -Value 'New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254' -Path $startupScript
 Add-Content -Value 'Write-Host -Object "Onboarding to Azure Arc"' -Path $startupScript
-Add-Content -Value 'function Get-MsiPackage()' -Path $startupScript
+Add-Content -Value 'function Get-Package()' -Path $startupScript
 Add-Content -Value '{' -Path $startupScript
 Add-Content -Value '  $ProgressPreference = "SilentlyContinue"' -Path $startupScript
 Add-Content -Value '  Invoke-WebRequest -Uri "https://github.com/coloplast-workshop/azure-arc/raw/main/servers/packages/AzureConnectedMachineAgent.msi" -OutFile "$env:windir\Temp\AzureConnectedMachineAgent.msi"' -Path $startupScript
 Add-Content -Value '}' -Path $startupScript
-
-Add-Content -Value 'Get-MsiPackage' -Path $startupScript
+Add-Content -Value 'Get-Package' -Path $startupScript
 Add-Content -Value '& "$env:windir\system32\msiexec.exe" /i "$env:windir\Temp\AzureConnectedMachineAgent.msi" /l*v "$env:windir\Temp\AzureConnectedMachineAgent.txt" /qn | Out-String' -Path $startupScript
 Add-Content -Value '& "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --service-principal-id $env:appId --service-principal-secret $env:password --resource-group $env:resourceGroup --tenant-id $env:tenantId --location $env:location --subscription-id $env:subscriptionId --tags "Azure_ARC_servers" --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"' -Path $startupScript
+Add-Content -Value 'Remove-Item -Path "$env:windir\Temp\AzureConnectedMachineAgent.msi" -ErrorAction SilentlyContinue' -Path $startupScript
 Add-Content -Value 'Unregister-ScheduledTask -TaskName "StartupScript" -Confirm:$false' -Path $startupScript
 Add-Content -Value 'Stop-Process -Name "powershell" -Force' -Path $startupScript
 
