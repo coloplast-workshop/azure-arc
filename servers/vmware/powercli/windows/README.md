@@ -1,5 +1,5 @@
-# how-to
-create the folder C:\AzureARC
-copy Install-AzureArcAgent.ps1 to the folder C:\AzureARC
-copy vars.ps1 to the folder C:\AzureARC
-run Install-AzureArcAgent.ps1 from the folder C:\AzureARC
+# How-to
+Create the folder **C:\AzureARC**<br/>
+Copy **Install-AzureArcAgent.ps1** to the folder **C:\AzureARC**<br/>
+Copy **vars.ps1** to the folder **C:\AzureARC**<br/>
+Run **Install-AzureArcAgent.ps1** from the folder **C:\AzureARC**
