@@ -1,4 +1,4 @@
-# Azure Arc
+# Azure Arc - Hybrid and Multicloud Management
 
 Resources:
 * [Azure Arc](https://azure.microsoft.com/en-us/services/azure-arc/)
