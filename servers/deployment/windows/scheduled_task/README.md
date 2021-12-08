@@ -14,4 +14,4 @@ Execute **Set-Vars.ps1** from the folder **C:\AzureARC** on the target computer<
 
 Execute **Install-AzureArcAgent.ps1** from the folder **C:\AzureARC** on the target computer<br/>
 Delete **Set-Vars.ps1** from the folder **C:\AzureARC** on the target computer<br/>
-Reboot the computer<br/>
+**Reboot the computer**<br/>
