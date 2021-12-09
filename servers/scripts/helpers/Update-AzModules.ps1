@@ -1,4 +1,6 @@
 ﻿#requires -RunAsAdministrator
+#requires -Version 3.0
+#requires -Modules PowerShellGet
 
 Get-Module -Name az.* -ListAvailable |
 Where-Object -Property Name -NE -Value 'Az.' |
