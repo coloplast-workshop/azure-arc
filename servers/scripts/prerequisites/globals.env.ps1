@@ -8,3 +8,4 @@ $location = 'westeurope'
 $servicePrincipalName = 'sp-azure-arc'
 $workspaceName = 'log-analytics-' + (Get-Random -Maximum 99999)
 $automationAccountName = 'automation-account'
+$resourceGroupDeploymentName = 'VM-UpdateManagement'
