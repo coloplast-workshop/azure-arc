@@ -1,4 +1,15 @@
-﻿$servicePrincipalName = 'sp-azure-arc'
+﻿<#
+    .SYNOPSIS   
+    Create a new service principal for AAzure ARC
+
+    .NOTES
+    Name        : 005_New-AzServicePrincipal.ps1
+    Author      : Lars Krogh Paulsen
+    DateCreated : 2021-12-08
+    Version     : 0.0.1
+#>
+
+$servicePrincipalName = 'sp-azure-arc'
 
 if (-not (Get-AzADServicePrincipal -DisplayName $servicePrincipalName))
 {
