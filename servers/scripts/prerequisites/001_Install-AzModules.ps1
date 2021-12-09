@@ -11,7 +11,7 @@
     Version     : 0.0.1
 #>
 
-$moduleNames = 'Az.Accounts', 'Az.ConnectedMachine', 'Az.Resources', 'Az.OperationalInsights', 'Az.Automation', 'Az.Compute', 'Az.KeyVault'
+. "$(Split-Path $PSCommandPath -Resolve)/globals.env.ps1"
 
 Install-PackageProvider -Name 'NuGet' -MinimumVersion 2.8.5.201 -Force
 

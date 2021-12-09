@@ -9,7 +9,6 @@
     Version     : 0.0.1
 #>
 
-$resourceGroup = 'rg-azure-arc'
-$location = 'westeurope'
+. "$(Split-Path $PSCommandPath -Resolve)/globals.env.ps1"
 
-New-AzAutomationAccount -ResourceGroupName $resourceGroup -Location $location -Name 'automation-account'
+New-AzAutomationAccount -ResourceGroupName $resourceGroupName -Location $location -Name $automationAccountName

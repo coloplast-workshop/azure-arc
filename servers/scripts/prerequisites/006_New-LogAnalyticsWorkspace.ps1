@@ -10,16 +10,14 @@
     Version     : 0.0.1
 #>
 
-$resourceGroup = 'rg-azure-arc'
-$workspaceName = 'log-analytics-' + (Get-Random -Maximum 99999)
-$location = 'westeurope'
+. "$(Split-Path $PSCommandPath -Resolve)/globals.env.ps1"
 
 try 
 {
-  Get-AzResourceGroup -Name $resourceGroup -ErrorAction Stop
+  Get-AzResourceGroup -Name $resourceGroupName -ErrorAction Stop
 } 
 catch 
 {
-  New-AzResourceGroup -Name $resourceGroup -Location $location
+  New-AzResourceGroup -Name $resourceGroupName -Location $location
 }
-New-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $workspaceName -Location $location -Sku pergb2018
+New-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroupName -Name $workspaceName -Location $location -Sku 'pergb2018'

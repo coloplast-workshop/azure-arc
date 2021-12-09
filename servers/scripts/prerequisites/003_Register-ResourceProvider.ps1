@@ -9,5 +9,9 @@
     Version     : 0.0.1
 #>
 
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+. "$(Split-Path $PSCommandPath -Resolve)/globals.env.ps1"
+
+foreach ($providerName in $providerNames)
+{
+  Register-AzResourceProvider -ProviderNamespace $providerName
+}

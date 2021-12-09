@@ -1,4 +1,6 @@
-﻿<#
+﻿#requires -Version 3.0 -Modules Az.Resources
+
+<#
     .SYNOPSIS   
     Create a new resource group deployment
 
@@ -9,6 +11,6 @@
     Version     : 0.0.1
 #>
 
-$resourceGroup = 'rg-azure-arc'
+. "$(Split-Path $PSCommandPath -Resolve)/globals.env.ps1"
 
-New-AzResourceGroupDeployment -Name VM-UpdateManagement -ResourceGroupName $ResourceGroup -Mode Incremental -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy-parm.json -Verbose
+New-AzResourceGroupDeployment -Name $resourceGroupDeploymentName -ResourceGroupName $resourceGroupName -Mode Incremental -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy-parm.json

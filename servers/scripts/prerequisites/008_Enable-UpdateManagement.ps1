@@ -10,8 +10,10 @@
     Version     : 0.0.1
 #>
 
+. "$(Split-Path $PSCommandPath -Resolve)/globals.env.ps1"
+
 New-AzResourceGroupDeployment `
 -Name 'DeployAALAUM' `
--ResourceGroupName 'rg-azure-arc' `
+-ResourceGroupName $resourceGroupName `
 -TemplateFile 'https://raw.githubusercontent.com/coloplast-workshop/azure-arc/main/servers/scripts/prerequisites/arm/deployUMSolutiontemplate.json' `
 -_artifactsLocation 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json'

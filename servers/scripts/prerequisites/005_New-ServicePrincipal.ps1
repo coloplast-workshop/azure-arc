@@ -9,12 +9,12 @@
     Version     : 0.0.1
 #>
 
-$servicePrincipalName = 'sp-azure-arc'
+. "$(Split-Path $PSCommandPath -Resolve)/globals.env.ps1"
 
 if (-not (Get-AzADServicePrincipal -DisplayName $servicePrincipalName))
 {
-  $servicePrincipal = New-AzADServicePrincipal -DisplayName 'Arc-for-servers' -Role 'Azure Connected Machine Onboarding'
+  $servicePrincipal = New-AzADServicePrincipal -DisplayName $servicePrincipalName -Role 'Azure Connected Machine Onboarding'
   $BSTR = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($servicePrincipal.Secret)
   $unsecureSecret = [Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-  $unsecureSecret
+  return $unsecureSecret
 }
