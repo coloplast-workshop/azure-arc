@@ -11,7 +11,7 @@
 #>
 
 New-AzResourceGroupDeployment `
--Name DeployAALAUM `
+-Name 'DeployAALAUM' `
 -ResourceGroupName 'rg-azure-arc' `
--TemplateFile deployUMSolutiontemplate.json `
+-TemplateFile 'https://raw.githubusercontent.com/coloplast-workshop/azure-arc/main/servers/scripts/prerequisites/arm/deployUMSolutiontemplate.json' `
 -_artifactsLocation 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json'
