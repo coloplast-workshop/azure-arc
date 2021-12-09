@@ -80,8 +80,8 @@ Add-Content -Value '}' -Path $startupScript
 
 Add-Content -Value 'Get-MsiPackage' -Path $startupScript
 Add-Content -Value '& "$env:windir\system32\msiexec.exe" /i "$env:windir\Temp\AzureConnectedMachineAgent.msi" /l*v "$env:windir\Temp\AzureConnectedMachineAgent.txt" /qn | Out-String' -Path $startupScript
-Add-Content -Value '& "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --service-principal-id $env:appId --service-principal-secret $env:password --resource-group $env:resourceGroup --tenant-id $env:tenantId --location $env:location --subscription-id $env:subscriptionId --tags "Azure_ARC_servers" --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"' -Path $startupScript
-Add-Content -Value 'Unregister-ScheduledTask -TaskName "StartupScript" -Confirm:$false' -Path $startupScript
+Add-Content -Value '& "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --service-principal-id $env:appId --service-principal-secret $env:password --resource-group $env:resourceGroup --tenant-id $env:tenantId --location $env:location --subscription-id $env:subscriptionId --correlation-id "d009f5dd-dba8-4ac7-bac9-b54ef3a6671a"' -Path $startupScript
+Add-Content -Value 'Unregister-ScheduledTask -TaskName "InstallAzureArcAgent" -Confirm:$false' -Path $startupScript
 Add-Content -Value 'Stop-Process -Name "powershell" -Force' -Path $startupScript
 
 New-ScheduledTask @scheduledTask | Register-ScheduledTask -TaskName $taskName -Force
