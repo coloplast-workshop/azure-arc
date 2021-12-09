@@ -1,9 +1,9 @@
 ﻿<#
     .SYNOPSIS   
-    Create a new service principal for AAzure ARC
+    Create a new service principal for Azure ARC
 
     .NOTES
-    Name        : 005_New-AzServicePrincipal.ps1
+    Name        : 005_New-ServicePrincipal.ps1
     Author      : Lars Krogh Paulsen
     DateCreated : 2021-12-08
     Version     : 0.0.1
