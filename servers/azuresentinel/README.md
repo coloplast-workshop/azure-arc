@@ -1,6 +1,5 @@
 # Connect Azure Arc-enabled servers to Azure Sentinel
 
-Coming soon
+To-do
 
-Resources:
-* [azuresentinel](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuresentinel/)
+[azuresentinel](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/day2/arc_azuresentinel/)
