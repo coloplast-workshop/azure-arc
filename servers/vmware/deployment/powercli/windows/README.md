@@ -1,4 +1,4 @@
-# Install the Azure Arc Agent on Windows using VMware PowerCLI
+# Install the Azure Arc agent on Windows using VMware PowerCLI
 
 Create the folder **C:\Azure\ARC**<br/>
 Copy **Install-AzureArcAgent.ps1** to the folder **C:\Azure\ARC**<br/>
