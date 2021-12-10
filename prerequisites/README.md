@@ -25,7 +25,7 @@ Execute **004_New-ResourceGroup.ps1** to create a resource group<br/>
 
 > Step 5
 
-Execute **005_New-ServicePrincipal.ps1** to create a service principal for Azure ARC<br/>
+Execute **005_New-ServicePrincipal.ps1** to create an service principal for Azure ARC<br/>
 
 > Step 6
 
@@ -33,11 +33,11 @@ Execute **006_New-LogAnalyticsWorkspace.ps1** to create a log analytics workspac
 
 > Step 7
 
-Execute **007_New-AutomationAccount.ps1** to create a automation account<br/>
+Execute **007_New-AutomationAccount.ps1** to create an automation account<br/>
 
 > Step 8
 
-Execute **008_Enable-UpdateManagement.ps1** to enable Update Management<br/>
+Execute **008_Enable-UpdateManagement.ps1** to enable update management<br/>
 
 > Step 9
 
