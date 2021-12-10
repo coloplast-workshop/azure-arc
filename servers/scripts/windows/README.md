@@ -16,5 +16,5 @@ Execute **Install-AzureArcAgent.ps1** to install and configure the Azure ARC age
 
 > Troubleshoot
 
-[Agent connection issues](https://docs.microsoft.com/en-us/azure/azure-arc/servers/troubleshoot-agent-onboard#agent-error-codes/)
+[Agent connection issues](https://docs.microsoft.com/en-us/azure/azure-arc/servers/troubleshoot-agent-onboard#agent-error-codes/)<br/>
 [VM extensions](https://docs.microsoft.com/en-us/azure/azure-arc/servers/troubleshoot-vm-extensions#general-troubleshooting/)
