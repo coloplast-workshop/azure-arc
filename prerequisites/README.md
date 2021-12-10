@@ -5,7 +5,7 @@ Create the folder **C:\Azure\prereqs** on your computer<br/>
 Copy the powershell scripts from here to the folder **C:\Azure\prereqs** on your computer<br/>
 Update the values in the file **globals.env.ps1**<br/>
 
-Open a PowerShell prompt and go the folder C:\Azure\prereqs<br/>
+Open a PowerShell prompt and go the folder **C:\Azure\prereqs**<br/>
 
 > Step 1
 
