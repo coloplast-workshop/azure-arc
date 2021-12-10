@@ -1,4 +1,5 @@
 # Azure Subscription preparations
+
 You require sufficient permissions to create a Service Principal, Resource Group, Log Analytics Workspace, Automation Account and should be able to manage those resources as well<br/>
 
 Create the folder **C:\Azure\prereqs** on your computer<br/>
@@ -45,4 +46,4 @@ Execute **009_New-ResourceGroupDeployment.ps1** to create a new resource group d
 
 > Step 10
 
-Execute **010_Add-UpdateManagementSchedule.ps1** to add a update management schedule<br/>
+Execute **010_Add-UpdateManagementSchedule.ps1** to add a update management schedule
