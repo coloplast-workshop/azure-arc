@@ -17,7 +17,7 @@ Execute **002_Invoke-AzLogin.ps1** to login to Azure<br/>
 
 > Step 3
 
-Execute **003_Register-ResourceProvider.ps1** to register the needed resource providers<br/><br/>Wait for appx. 10 minutes<br/><br/>
+Execute **003_Register-ResourceProvider.ps1** to register the needed resource providers<br/><br/>**Wait for appx. 10 minutes**<br/><br/>
 
 > Step 4
 
