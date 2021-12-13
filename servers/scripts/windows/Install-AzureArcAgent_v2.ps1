@@ -9,7 +9,7 @@
     Version     : 0.0.1
 #>
 
-function Get-Package()
+function Get-Package
 {
   param(
     [Parameter(Mandatory, Position = 0, HelpMessage = 'URL')]
