@@ -9,14 +9,8 @@
     Version     : 0.0.1
 #>
 
-$xmlFile = Join-Path -Path $env:windir -ChildPath 'Temp\AzureCloud.xml'
-
-[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072
-(New-Object -TypeName 'System.Net.WebClient').DownloadString('https://raw.githubusercontent.com/coloplast-workshop/azure-arc/main/servers/scripts/windows/AzureCloud.xml') | Out-File -FilePath $xmlFile
-
-Write-Output -InputObject ('Please update the values in the xml file {0}' -f $xmlFile)
-$host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
-
+[string]$currentPath = Get-Location
+$xmlFile = $currentPath + '\AzureCloud.xml'
 [xml]$xmlContent = Get-Content -Path $xmlFile
 $subscriptionId = $xmlContent.AzureCloud.Subscription.ID
 $appId = $xmlContent.AzureCloud.Tenant.ID
