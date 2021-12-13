@@ -14,4 +14,8 @@
       <Name>_replace_resource_group_name_</Name>
       <Location>_replace_resource_group_location_</Location>
    </ResourceGroup>
+   <OpinsightsWorkspace>
+      <ID>_replace_opinsights_workspace_id_</ID>
+      <Key>_replace_opinsights_workspace_key_</Key>
+   </OpinsightsWorkspace>
 </AzureCloud>

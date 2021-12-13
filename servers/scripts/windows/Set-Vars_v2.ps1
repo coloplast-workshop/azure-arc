@@ -1,32 +1,31 @@
 ﻿<#
     .SYNOPSIS   
-    Set environment variables for onboarding the Azure ARC agent
+    Read xml file and set environment variables for onboarding the Azure ARC agent
 
     .NOTES
-    Name        : Set-Vars.ps1
+    Name        : Set-Vars_v2.ps1
     Author      : Lars Krogh Paulsen
     DateCreated : 2021-12-08
     Version     : 0.0.1
 #>
 
-param (
-  [Parameter(Mandatory,HelpMessage = 'Subscription ID')]
-  [string]$subscriptionId,
-  [Parameter(Mandatory,HelpMessage = 'Service principal name')]
-  [string]$appId,
-  [Parameter(Mandatory,HelpMessage = 'Service principal password')]
-  [string]$env:password,
-  [Parameter(Mandatory,HelpMessage = 'Tenant ID')]
-  [string]$tenantId,
-  [Parameter(Mandatory,HelpMessage = 'Resource group')]
-  [string]$resourceGroup,
-  [Parameter(Mandatory,HelpMessage = 'Resource group location')]
-  [string]$location,
-  [Parameter(Mandatory,HelpMessage = 'Log Analytics workspace id')]
-  [string]$loganalyticsworkspaceid,
-  [Parameter(Mandatory,HelpMessage = 'Log Analytics workspace key')]
-  [string]$loganalyticsworkspacekey
-)
+$xmlFile = Join-Path -Path $env:windir -ChildPath 'Temp\AzureCloud.xml'
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072
+(New-Object -TypeName 'System.Net.WebClient').DownloadString('https://raw.githubusercontent.com/coloplast-workshop/azure-arc/main/servers/scripts/windows/AzureCloud.xml') | Out-File -FilePath $xmlFile
+
+Write-Output -InputObject ('Please update the values in the xml file {0}' -f $xmlFile)
+$host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+
+[xml]$xmlContent = Get-Content -Path $xmlFile
+$subscriptionId = $xmlContent.AzureCloud.Subscription.ID
+$appId = $xmlContent.AzureCloud.Tenant.ID
+$resourceGroup = $xmlContent.AzureCloud.ResourceGroup.Name
+$location = $xmlContent.AzureCloud.ResourceGroup.Location
+$password = $xmlContent.AzureCloud.ServicePrincipal.Secret
+$tenantId = $xmlContent.AzureCloud.Tenant.ID
+$opinsightsworkspaceId = $xmlContent.AzureCloud.OpinsightsWorkspace.ID
+$opinsightsworkspaceKey = $xmlContent.AzureCloud.OpinsightsWorkspace.Key
 
 [Environment]::SetEnvironmentVariable('subscriptionId', $subscriptionId,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('appId', $appId,[EnvironmentVariableTarget]::Machine)
@@ -34,5 +33,7 @@ param (
 [Environment]::SetEnvironmentVariable('tenantId', $tenantId,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('resourceGroup', $resourceGroup,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('location', $location,[EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable('loganalyticsworkspaceid', $loganalyticsworkspaceid,[EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable('loganalyticsworkspacekey', $loganalyticsworkspacekey,[EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable('opinsightsWorkspaceId', $opinsightsworkspaceId,[EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable('opinsightsWorkspaceKey', $opinsightsworkspaceKey,[EnvironmentVariableTarget]::Machine)
+
+Remove-Item -Path $xmlFile -Force -ErrorAction SilentlyContinue
