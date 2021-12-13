@@ -46,4 +46,4 @@ if (-not ($chocoExist))
 & "$env:ChocolateyInstall\bin\choco.exe" install 'microsoft.azureloganalyticsagent' -s "$env:SystemDrive\packages" -y
 & "$env:ChocolateyInstall\bin\choco.exe" install 'microsoft.dependencyagent' -s "$env:SystemDrive\packages" -y
 & "$env:ChocolateyInstall\bin\choco.exe" install 'microsoft.azurearcagent' -s "$env:SystemDrive\packages" -y
-& "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --service-principal-id $env:appId --service-principal-secret $env:password --resource-group $env:resourceGroup --tenant-id $env:tenantId --location $env:location --subscription-id $env:subscriptionId  --verbose
+& "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --tenant-id $env:tenantId --subscription-id $env:subscriptionId --resource-group $env:resourceGroup --location $env:location --service-principal-id $env:appId --service-principal-secret $env:password  --cloud 'AzureCloud' --verbose

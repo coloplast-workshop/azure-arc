@@ -12,21 +12,21 @@
 [string]$currentPath = Get-Location
 $xmlFile = $currentPath + '\AzureCloud.xml'
 [xml]$xmlContent = Get-Content -Path $xmlFile
-$subscriptionId = $xmlContent.AzureCloud.Subscription.ID
 $tenantId = $xmlContent.AzureCloud.Tenant.ID
-$appId = $xmlContent.AzureCloud.Tenant.ID
-$password = $xmlContent.AzureCloud.ServicePrincipal.Secret
+$subscriptionId = $xmlContent.AzureCloud.Subscription.ID
 $resourceGroup = $xmlContent.AzureCloud.ResourceGroup.Name
 $location = $xmlContent.AzureCloud.ResourceGroup.Location
+$appId = $xmlContent.AzureCloud.Tenant.ID
+$password = $xmlContent.AzureCloud.ServicePrincipal.Secret
 $opinsightsWorkspaceId = $xmlContent.AzureCloud.OpinsightsWorkspace.ID
 $opinsightsWorkspaceKey = $xmlContent.AzureCloud.OpinsightsWorkspace.Key
 
-[Environment]::SetEnvironmentVariable('subscriptionId', $subscriptionId,[EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable('resourceGroup', $resourceGroup,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('tenantId', $tenantId,[EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable('location', $location,[EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable('subscriptionId', $subscriptionId,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('appId', $appId,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('password', $password,[EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable('resourceGroup', $resourceGroup,[EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable('location', $location,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('opinsightsWorkspaceId', $opinsightsWorkspaceId,[EnvironmentVariableTarget]::Machine)
 [Environment]::SetEnvironmentVariable('opinsightsWorkspaceKey', $opinsightsWorkspaceKey,[EnvironmentVariableTarget]::Machine)
 
