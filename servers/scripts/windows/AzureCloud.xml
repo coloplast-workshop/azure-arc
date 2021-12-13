@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AzureCloud>
    <Subscription>
-      <ID>_subscription_id_</ID>
+      <ID>_replace_subscription_id_</ID>
    </Subscription>
    <Tenant>
-      <ID>_tenant_id_</ID>
+      <ID>_replace_tenant_id_</ID>
    </Tenant>
    <ServicePrincipal>
-      <ID>_service_principal_id_</ID>
-      <Secret>_service_principal_secret_</Secret>
+      <ID>_replace_service_principal_id_</ID>
+      <Secret>_replace_service_principal_secret_</Secret>
    </ServicePrincipal>
    <ResourceGroup>
-      <Name>_resource_group_name_</Name>
-      <Location>_resource_group_location_</Location>
+      <Name>_replace_resource_group_name_</Name>
+      <Location>_replace_resource_group_location_</Location>
    </ResourceGroup>
 </AzureCloud>
