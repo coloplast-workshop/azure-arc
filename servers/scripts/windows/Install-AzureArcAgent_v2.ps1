@@ -30,16 +30,15 @@ $chocoExist = ((Test-Path -Path $env:ChocolateyInstall) -and (Test-Path -Path "$
 
 if (-not (Test-Path -Path $localFolder))
 {
-  $null = New-Item -Path $localFolder -ItemType 'Directory' -Force
+  $null = New-Item -Path $localFolder -ItemType Directory
 }
 foreach ($package in $packages)
 {
   Get-Package -url $url -package $package
 }
-
 if (-not ($chocoExist))
 {
-  $env:ChocolateyInstall = $env:programData + '\Chocolatey'
+  $env:ChocolateyInstall = $env:ProgramData + '\Chocolatey'
   [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072
   Invoke-Expression -Command ((New-Object -TypeName 'System.Net.WebClient').DownloadString('https://community.chocolatey.org/install.ps1'))
 }
