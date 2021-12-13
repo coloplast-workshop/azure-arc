@@ -33,7 +33,7 @@ Execute **Set-Vars_v2.ps1** to create environment variables on the target comput
 
 > Step 4
 
-Execute **Install-AzureArcAgent.ps1** to install and configure the Azure ARC agent on the target computer<br/>
+Execute **Install-AzureArcAgent_v2.ps1** to install and configure the Azure ARC agent on the target computer<br/>
 
 
 > Troubleshoot
